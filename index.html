@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CPU/CC Miner Affinity Setter</title>
+	<!--
+    CPUMiner Affinity Setter tool for generating correct affinity and priority parameters
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+	-->
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font: normal normal normal 14px/18px Arial, sans-serif;
+		}
+		#container {
+			box-sizing: border-box;
+			margin: 2em auto;
+			padding: 1em;
+			width: 100%;
+			max-width: 980px;
+			background: #f0f0f0;
+			box-shadow: 1px 1px 2px #b0b0b0;
+		}
+
+		h1 {
+			border-bottom: 1px solid #b0b0b0;
+			padding-bottom: .5em;
+		}
+		select {
+			min-width: 80px;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		th {
+			background-color: #e0e0e0;
+		}
+		td, th {
+			border: 1px solid #b0b0b0;
+			padding: .5em 1em;
+			text-align: center;
+		}
+
+		#af_results {
+			display: none;
+			border-top: 1px solid #b0b0b0;
+			padding-top: .5em;	
+		}
+		pre {
+			margin: 1em 0;
+			padding: 1em 1.5em;
+			border: 1px dashed #e0e0e0;
+			background-color: #b0b0b0;
+		}
+
+		.overflow {
+			box-sizing: border-box;
+			width: 100%;
+			overflow-x: auto;
+		}
+	</style>
+</head>
+<body>
+
+<div id="container">
+	<h1>CPU/CC Miner &mdash; Affinity Setting Tool</h1>
+	<p>
+		This little tool should help you correctly configure the <em>--cpu-affinity</em> and <em>--cpu-priority</em> parameters for CPUMiner in Windows. 
+		<br>
+		
+	</p>
+
+	<form id="af_form">
+		<p>
+			<label for="af_cores">Number of CPU cores:</label>
+			<select name="af_cores" id="af_cores">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4" selected="selected">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+<option value="60">60</option>
+<option value="61">61</option>
+<option value="62">62</option>
+<option value="63">63</option>
+<option value="64">64</option>
+<option value="65">65</option>
+<option value="66">66</option>
+<option value="67">67</option>
+<option value="68">68</option>
+<option value="69">69</option>
+<option value="70">70</option>
+<option value="71">71</option>
+<option value="72">72</option>
+<option value="73">73</option>
+<option value="74">74</option>
+<option value="75">75</option>
+<option value="76">76</option>
+<option value="77">77</option>
+<option value="78">78</option>
+<option value="79">79</option>
+<option value="80">80</option>
+<option value="81">81</option>
+<option value="82">82</option>
+<option value="83">83</option>
+<option value="84">84</option>
+<option value="85">85</option>
+<option value="86">86</option>
+<option value="87">87</option>
+<option value="88">88</option>
+<option value="89">89</option>
+<option value="90">90</option>
+<option value="91">91</option>
+<option value="92">92</option>
+<option value="93">93</option>
+<option value="94">94</option>
+<option value="95">95</option>
+<option value="96">96</option>
+<option value="97">97</option>
+<option value="98">98</option>
+<option value="99">99</option>
+			</select>			
+		</p>
+		<p>
+			<em>Deselect</em> the CPU cores that you want the application to ignore:
+			<div class="overflow">
+				<table id="af_cores_table"></table>
+			</div>
+		</p>
+		<p>
+			<label for="af_priority">CPU Priority:</label>
+			<select name="af_priority" id="af_priority">
+				<option value="5">Realtime*</option>
+				<option value="4">High</option>
+				<option value="3">Above Normal</option>
+				<option value="2" selected="selected">Normal (default)</option>
+				<option value="1">Below Normal</option>
+			</select>
+			<br>
+			<small>
+				* Realtime priority will probably cause your machine become unusable so is not recommended.
+			</small>
+		</p>
+		<p>
+			<input type="submit" value="Calculate...">
+		</p>
+	</form>
+
+	<div id="af_results">
+		<h2>Results</h2>
+		Launch CPUMiner with the following parameters:
+		<pre>-t <span id="af_cores_result"></span> --cpu-affinity <span id="af_affinity_result"></span> --cpu-priority <span id="af_priority_result"></span></pre>
+		<p>
+			<small>
+				Donations SHIBA:<br>
+				0x43f468c93ee04244c8a82e8c50cf0d2a1af6a7a7
+			</small>
+		</p>
+	</div>
+</div>
+
+<script>
+	(function() {
+		var form = document.forms['af_form'],
+				cores = form.elements['af_cores'],
+				cores_selection,
+				priority = form.elements['af_priority'],
+				cores_table = document.getElementById('af_cores_table'),
+				results = document.getElementById('af_results'),
+				results_cores = document.getElementById('af_cores_result'),
+				results_affinity = document.getElementById('af_affinity_result'),
+				results_priority = document.getElementById('af_priority_result');
+
+		/* bind handlers */
+		form.addEventListener('submit', submit, false);
+		cores.addEventListener('change', coreChange, false);
+
+		function coreChange () {
+			makeTable(this.value);
+		} /* end coreChange() */
+
+		function makeTable (num) {
+			/* clear table */
+			cores_table.innerHTML = "";
+
+			/* create headings */
+			var header = cores_table.createTHead(),
+					header_row = header.insertRow(0),
+					body = cores_table.appendChild(document.createElement('tbody')),
+					body_row = body.insertRow(0);
+
+			/* insert new table data */
+			for (var i = 0; i < num; i++) {
+				var header_cell = document.createElement('th'),
+						body_cell = body_row.insertCell(-1),
+						label = document.createElement('label'),
+						checkbox = document.createElement('input'),
+						inputID = "af_core_selection_" + parseInt(i);
+
+				/* create header label and append to header */
+				label.htmlFor = inputID;
+				label.innerHTML = "Core " + parseInt(i+1);
+				header_cell.appendChild(label);
+				header_row.appendChild(header_cell);
+
+				/* create body checkbox and append */
+				checkbox.type = 'checkbox';
+				checkbox.name = "af_core_selection";
+				checkbox.id = inputID;
+				checkbox.setAttribute('checked', 'checked');
+				body_cell.appendChild(checkbox);
+			}
+
+			cores_selection = form.elements['af_core_selection'];
+		} /* end makeTable() */
+
+		function submit (evnt) {
+			evnt.preventDefault();
+
+			var binary = "",
+					decimal = "";
+			
+			/* make binary */
+			for (var i = cores_selection.length-1; i >= 0; i--) {
+				if (cores_selection[i].checked === true) {
+					binary += "1";
+				}
+				else {
+					binary += "0";
+				}
+			}
+
+			/* convert binary to decimal */
+			decimal = parseInt(binary, 2);
+
+			/* display results */
+			results_affinity.innerHTML = decimal;
+			results_priority.innerHTML = priority.value;
+			results_cores.innerHTML = cores.value;
+			results.style.display = 'block';
+		} /* end submit() */
+
+		/* initial load to create table */
+		makeTable(cores.value);
+	})();
+</script>
+
+</body>
+</html>
